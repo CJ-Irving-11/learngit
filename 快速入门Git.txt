@@ -24,15 +24,4 @@ Git的基本使用：
 			d.点击Add key。
 			e.验证下这个key能不能正常工作：
 				ssh -T git@github.com //如果不行，先输入ssh-agent bash
-			
-		Ⅳ.修改Git的remote url
-			a.使用命令:git remote -v 查看当前的 remote url
-			如果是：origin https://github.com/someaccount/someproject.git (fetch)
-					origin https://github.com/someaccount/someproject.git (push)
-			说明此项目使用https协议进行访问的。
-			b.git remote set-url origin git@github.com:你的GitHub名称/仓库名.git
-四.
-	将文件导入仓库的步骤:
-	a.git add .
-	b.git commit -m "输入你想表达的信息"
-	c.git push -u origin master
+	
