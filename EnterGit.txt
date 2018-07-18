@@ -1,0 +1,27 @@
+Git的基本使用：
+
+一.
+	1.git config --global user.name "你的用户名"
+	2.git config --global user.email "你的邮箱名"
+	
+二.
+    1.在合适的位置创建文件夹作为Git仓库
+	2.git init
+
+三.
+	1.关联GitHub:
+		Ⅰ.配置密钥：
+			a.cd ~/.ssh //SSH公钥默认存储在账户的主目录下的~/.ssh目录
+			b.ls //显示当前目录下的文件，查看是否有id_rsa和id_rsa.pub(或者是id_dsa和id_dsa.pub这类成对文件)，有.pub后缀的文件就是公钥
+			另一个文件则是密钥。假如没有这些文件，甚至连 .ssh 目录都没有，可以用 ssh-keygen 来创建。
+			该程序在 Linux/Mac 系统上由 SSH 包提供，而在 Windows 上则包含在 MSysGit 包里：
+			c.ssh-keygen -t rsa -C "your_email@youremail.com" //直接按Enter就行。然后，会提示你输入密码。
+		Ⅱ.添加公钥到你的远程仓库(Github)
+			a.cat ~/.ssh/id_rsa.pub //查看你生成的公钥。
+			//ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCvjowtF3YAeJU63BAod0UYzehJdupfxHDUMT8Wc91EtSqDhizfJoH6CWZT1P0rWqFSEebhnGUX2Q4RNPu7mEURjwTWkH3MoM2xf2RE27g8l+UrBxB8rdqv0DwT+Z+lojB3mS3oiq0H/iPOosNa4FAjtbrAXvrHwatAMVF1HKmj1fpU9hTnYAZtSJ1bI3gF76DJncuA/gUd5PVJIM7ZqDozy93k2xIub3ykpx92JO4jQkm0YMiQ/+PtkYXfdHY9nDOERcixZ0Vze0X/W2l6HuymwJxdpdM2kVaQhEYFLX79eD+tbVJKvCdNTSsQkaf0tVKZYXnOXxVbNQ48om6u4JA3 188095825@qq.com
+			b.登陆你的github账户，点击你的头像，然后Setting -> 左栏点击SSH and GPC keys -> 点击New SSH key
+			c.复制上面的公钥内容，粘贴进"Key"文本域内。Title域可以随便填。
+			d.点击Add key。
+			e.验证下这个key能不能正常工作：
+				ssh -T git@github.com //如果不行，先输入ssh-agent bash
+	
